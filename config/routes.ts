@@ -75,5 +75,10 @@ const routes: Array<API.Routes> = [
     path: '/echartPie',
     component: './3DEchartPie',
   },
+  {
+    name: '文件批量处理',
+    path: '/excel',
+    component: './ExcelReader',
+  },
 ];
 export default routes;
