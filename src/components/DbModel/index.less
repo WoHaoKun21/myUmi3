@@ -1,0 +1,79 @@
+.content_tab {
+  padding-top: 10px;
+  background-color: #fff;
+  margin-left: 200px;
+  .header {
+    position: relative;
+    height: 20px;
+    margin-bottom: 14px;
+    padding-left: 20px;
+    color: #333333;
+    font-weight: bold;
+    font-size: 14px;
+
+    .lengend {
+      position: absolute;
+      top: 0;
+      right: 50px;
+      display: flex;
+      width: 65%;
+
+      span {
+        float: left;
+      }
+      div {
+        display: flex;
+        flex-direction: row-reverse;
+        align-items: center;
+        margin-right: 20px;
+        .dashed {
+          width: 50px;
+          height: 10px;
+          border-bottom: 2px dashed #ccc;
+        }
+        .label {
+          font-size: 14px;
+          font-family: PingFang SC;
+        }
+      }
+      div::after {
+        display: inline-block;
+        width: 50px;
+        margin-right: 10px;
+        border-bottom: 2px dashed #f00;
+        content: '';
+      }
+      .dangqian {
+        color: rgba(75, 142, 244, 1);
+      }
+      .dangqian::after {
+        border-color: rgba(75, 142, 244, 1);
+      }
+      .bading {
+        color: #214f7c;
+      }
+      .bading::after {
+        border-color: #214f7c;
+      }
+      .xuxian {
+        color: #ff5e17;
+      }
+      .xuxian::after {
+        border-color: #ff5e17;
+      }
+      .sishuiwei {
+        color: #a9a9a9;
+      }
+      .sishuiwei::after {
+        border-color: #a9a9a9;
+      }
+    }
+  }
+  .ground {
+    position: relative;
+    top: -7px;
+    left: 0px;
+    height: 6px;
+    background: url('../../../public/ground.png') no-repeat;
+  }
+}

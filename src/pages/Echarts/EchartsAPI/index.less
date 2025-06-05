@@ -1,0 +1,31 @@
+.container {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  overflow: hidden;
+  overflow-y: auto;
+  background-color: #fff;
+  border: 1px solid #cecece;
+  h2 {
+    text-align: center;
+  }
+  .menu {
+    position: absolute;
+    top: -999999px;
+    left: -99999px;
+    background: #366aff;
+    border-radius: 2px;
+    li {
+      align-content: center;
+      padding: 5px 10px;
+      color: #ffff;
+      font-size: 14px;
+      border-bottom: 1px dashed #ffffff;
+      cursor: pointer;
+    }
+    li:last-child {
+      border-bottom: none;
+    }
+  }
+}
