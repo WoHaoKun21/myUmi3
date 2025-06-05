@@ -20,14 +20,28 @@
     ]
   },
   "dependencies": {
+    "@ant-design/icons": "^5.6.1",
     "@ant-design/pro-layout": "^6.5.0",
-    "react": "^18.3.1",
-    "react-dom": "^18.3.1",
-    "umi": "^3.5.43"
+    "@orillusion/core": "^0.8.5-dev.6",
+    "antd": "^5.25.4",
+    "axios": "^1.9.0",
+    "classnames": "^2.5.1",
+    "dayjs": "^1.11.13",
+    "echarts": "^5.6.0",
+    "echarts-gl": "^2.0.9",
+    "lunar-calendar": "^0.1.4",
+    "react": "18.x",
+    "react-dom": "18.x",
+    "three": "^0.177.0",
+    "umi": "^3.5.43",
+    "umi-plugin-keep-alive": "^0.0.1-beta.35",
+    "umi-request": "^1.4.0",
+    "xlsx": "^0.18.5"
   },
   "devDependencies": {
-    "@types/react": "^18.3.23",
-    "@types/react-dom": "^18.3.7",
+    "@types/react": "^18.0.0",
+    "@types/react-dom": "^18.0.0",
+    "@umijs/fabric": "^4.0.1",
     "@umijs/plugin-esbuild": "^1.4.2",
     "@umijs/preset-react": "1.x",
     "@umijs/test": "^3.5.43",

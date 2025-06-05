@@ -1,18 +1,10 @@
 // import RightContent from '@/components/RightContent';
 import { history } from 'umi';
 import { notification } from 'antd';
-import { PageLoading } from '@ant-design/pro-layout';
 import type { RequestConfig } from 'umi';
 import type { Settings as LayoutSettings } from '@ant-design/pro-layout';
 import type { RequestOptionsInit } from 'umi-request';
 import { MethodEnum } from './enums';
-
-const loginPath = '/login';
-
-/** 获取用户信息比较慢的时候会展示一个 loading */
-export const initialStateConfig = {
-  loading: <PageLoading />,
-};
 
 /**
  * @see  https://umijs.org/zh-CN/plugins/plugin-initial-state
@@ -26,20 +18,6 @@ export async function getInitialState(): Promise<{
   getMessage?: () => Promise<any | undefined>;
   fetchUserInfo?: () => Promise<any | undefined>;
 }> {
-  const accessToken = window.localStorage.getItem('ACCESS_TOKEN') || '';
-  const userInfoString = window.localStorage.getItem('USER_INFO');
-  const userInfo = (userInfoString && JSON.parse(userInfoString)) || null;
-  const fetchUserInfo = async () => {
-    try {
-    } catch (error) {}
-    return undefined;
-  };
-
-  // 如果不是是登录页面，执行信息请求
-  if (history.location.pathname !== loginPath) {
-    const currentUser = await fetchUserInfo();
-    return {};
-  }
   return {};
 }
 
