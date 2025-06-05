@@ -1,0 +1,170 @@
+.container {
+  height: 100vh;
+  font-weight: normal;
+  background: #e9eaee;
+  // user-select: none;
+
+  .header {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    height: 100px;
+    background: url(../../public/backgroundImg.png) no-repeat;
+    background-size: 100% 100%;
+    .header_title {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 100%;
+      height: 100%;
+      color: #ffffff;
+      font-weight: normal;
+      font-size: 34px;
+      text-align: center;
+      background-color: rgba(2, 101, 250, 0.59);
+      cursor: pointer;
+      transition: all ease-in-out;
+    }
+
+    .header_info {
+      position: absolute;
+      top: 50%;
+      right: 30px;
+      color: #fff;
+      font-size: 18px;
+      transform: translateY(-50%);
+    }
+  }
+
+  .com_info {
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+    height: calc(100% - 100px);
+    // 导航部分
+    .nav_link {
+      z-index: 10;
+      width: 180px;
+      height: 100%;
+      overflow: hidden;
+      overflow-y: auto;
+      background: url(../../public/comm/slid_bg.png) no-repeat 100% 100%;
+      background-size: 100% 100%;
+      box-shadow: 3px 0px 8px 0px rgba(0, 21, 41, 0.12);
+      transition: all 0.5s;
+      // 导航栏图标
+      .icon_style {
+        width: 18px;
+        height: 18px;
+      }
+
+      :global {
+        .ant-menu {
+          background: #0000;
+          .ant-menu-sub.ant-menu-inline > .ant-menu-item,
+          .ant-menu-sub.ant-menu-inline
+            > .ant-menu-submenu
+            > .ant-menu-submenu-title {
+            height: 46px;
+          }
+
+          .ant-menu-item {
+            position: relative;
+            height: 46px;
+            margin: 0;
+          }
+          .ant-menu-item::after {
+            position: absolute;
+            top: 50%;
+            right: auto;
+            left: 0;
+            display: inline;
+            height: 18px;
+            border-right: 3px solid #fff;
+            transform: translateY(-50%);
+          }
+          .ant-menu-submenu {
+            .ant-menu-submenu-title {
+              height: 46px;
+              margin: 0px;
+            }
+            .ant-menu-item {
+              padding-left: 53px !important;
+            }
+          }
+        }
+        .ant-menu-inline {
+          border-right: none;
+        }
+        // 导航栏颜色——默认样式
+        .ant-menu-inline.ant-menu-root
+          .ant-menu-submenu-title
+          > .ant-menu-title-content,
+        .ant-menu-item a,
+        .ant-menu-submenu-expand-icon,
+        .ant-menu-submenu-arrow {
+          color: #fff;
+        }
+
+        // 导航栏触发后的样式 //092152
+        .ant-menu-submenu-actice
+          .ant-menu-submenu-title
+          .ant-menu-title-content,
+        .ant-menu-submenu-selected
+          > .ant-menu-submenu-title
+          .ant-menu-title-content,
+        .ant-menu-submenu-selected
+          > .ant-menu-submenu-title
+          .ant-menu-submenu-arrow {
+          color: #fff !important;
+        }
+
+        // MenuSub菜单划入
+        .ant-menu-submenu-active .ant-menu-submenu-title,
+        .ant-menu-item-active {
+          background-color: #ffffff10;
+        }
+
+        .ant-menu-submenu-active
+          .ant-menu-submenu-title:hover
+          .ant-menu-title-content,
+        .ant-menu-submenu:hover
+          > .ant-menu-submenu-title
+          > .ant-menu-submenu-arrow {
+          color: #fff !important;
+        }
+
+        // 子菜单划入效果
+        .ant-menu-item a:hover {
+          color: #fff !important;
+        }
+
+        .ant-menu:not(.ant-menu-horizontal) .ant-menu-item-selected {
+          background: #ffffff10; // 选中后的颜色
+        }
+        .ant-menu-item-selected .ant-menu-title-content a {
+          color: #fff !important;
+        }
+
+        .ant-menu-vertical .ant-menu-item::after,
+        .ant-menu-vertical-left .ant-menu-item::after,
+        .ant-menu-vertical-right .ant-menu-item::after,
+        .ant-menu-inline .ant-menu-item::after {
+          border-right: 1px solid #ffffff10;
+        }
+      }
+    }
+    // 内容部分
+    .content {
+      position: relative;
+      width: calc(100% - 180px);
+      height: 100%;
+      padding: 0px 7px 7px 7px;
+      overflow: hidden;
+      overflow-y: auto;
+      background-color: #f1f4f9;
+      border-radius: 2px;
+    }
+  }
+}

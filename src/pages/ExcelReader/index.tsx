@@ -20,9 +20,9 @@ const ExcelReader = () => {
     if (!file) return;
 
     const reader = new FileReader();
-    reader.onload = (e: any) => {
-      const data = new Uint8Array(e.target.result);
-      const workbook = XLSX.read(data, { type: 'array' });
+    reader.onload = () => {
+      const fileData = new Uint8Array(e.target.result);
+      const workbook = XLSX.read(fileData, { type: 'array' });
 
       // 获取第一个工作表
       const worksheetName = workbook.SheetNames[0];

@@ -15,16 +15,16 @@ const umiDva = (props: any) => {
     dispat({ type: 'test/changeName', payload: { name: 'jarry' } });
   };
   return (
-    <>
+    <div style={{ width: '100%', height: '100%' }}>
       <p>计数器：{count}</p>
       <p>姓名：{name}</p>
       <button onClick={add}>+</button>
       <button onClick={changeName}>改变名字</button>
-    </>
+    </div>
   );
 };
 const mapStateToProps = ({ test }: any, data: any) => {
-  // console.log('数据展示：', state, data);
+  console.log('数据展示：', test, data);
   return {
     count: test.count,
     name: test.name,

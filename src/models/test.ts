@@ -1,4 +1,4 @@
-let test = {
+const test = {
   namespace: 'test',
   state: {
     count: 0,
@@ -22,4 +22,5 @@ let test = {
     },
   },
 };
+
 export default test;
