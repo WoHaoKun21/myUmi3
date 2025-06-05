@@ -163,11 +163,11 @@ const routes: Route[] = [
             path: '/antd/collapse',
             component: './Antd/Collapse',
           },
-          // {
-          //   path: '/antd/sLzj',
-          //   name: '示例组件',
-          //   component: './Antd/SLzj',
-          // },
+          {
+            path: '/antd/sLzj',
+            name: '示例组件',
+            component: './Antd/SLzj',
+          },
         ],
       },
       {

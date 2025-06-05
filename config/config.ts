@@ -3,7 +3,7 @@ import routes from './routes';
 
 export default defineConfig({
   hash: true,
-  antd: {},
+  // antd: {},// 开启antd，如果自己安装了，建议关闭
   dva: { hmr: true },
   // // 自定义layout开启后，这里要关闭
   // layout: {
