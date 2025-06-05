@@ -20,7 +20,10 @@
     "mock/**/*",
     "src/**/*",
     "config/**/*",
-    ".umirc.ts",
+    ".eslintrc.js",
+    ".stylelintrc.js",
+    ".prettierrc.js",
+    "mock/*",
     "typings.d.ts"
   ],
   "exclude": [

@@ -92,6 +92,8 @@ const CommMenu: React.FC<ICommMenuProps> = (props) => {
         ? false
         : true;
     setTabSw(LsIcon);
+    const arr = history.location.pathname.split('/').filter(Boolean);
+    arr.length > 1 && setOpenKeys([`/${arr[0]}`]);
   }, []);
 
   return (
@@ -107,7 +109,9 @@ const CommMenu: React.FC<ICommMenuProps> = (props) => {
         selectedKeys={selectKeys}
         openKeys={openKeys}
         onClick={(o: any) => setSelectKeys([o.key])}
-        onOpenChange={(o: any) => setOpenKeys([o[1]])}
+        onOpenChange={(o: string[]) =>
+          setOpenKeys([o.length === 1 ? o[0] : o[1]])
+        }
       >
         {renderMenu(handleRoutes(routes[0].routes!))}
       </Menu>

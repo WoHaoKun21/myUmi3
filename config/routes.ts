@@ -13,6 +13,18 @@ const routes: Route[] = [
         icon: '/comm/home',
       },
       {
+        name: 'UI大屏',
+        path: '/UIBig',
+        component: './UIBig',
+        icon: '/comm/monitor',
+      },
+      {
+        name: '百度地图',
+        path: '/BDMap',
+        component: './BDMap',
+        icon: '/comm/info',
+      },
+      {
         path: '/leaflet',
         name: 'Leflets的使用',
         icon: '/comm/analy',
@@ -33,12 +45,6 @@ const routes: Route[] = [
             component: './Leaflet/leafletBDSwitch',
           },
         ],
-      },
-      {
-        name: '百度地图',
-        path: '/BDMap',
-        component: './BDMap',
-        icon: '/comm/info',
       },
       {
         path: '/gdMap',
@@ -134,7 +140,7 @@ const routes: Route[] = [
       {
         name: 'React功能',
         path: '/react',
-        icon: '/comm/logo',
+        icon: '/comm/project',
         routes: [
           {
             name: 'dva使用',
@@ -170,11 +176,23 @@ const routes: Route[] = [
           },
         ],
       },
+
       {
-        name: 'UI大屏',
-        path: '/UIBig',
-        component: './UIBig',
-        icon: '/comm/monitor',
+        name: '元素拖拽',
+        path: '/drag',
+        icon: '/comm/project',
+        routes: [
+          {
+            name: 'ReactDnd拖拽库',
+            path: '/drag/reactdnd',
+            component: './Drag/ReactDnd',
+          },
+          {
+            name: 'InteractJs拖拽库',
+            path: '/drag/interactjs',
+            component: './Drag/InteractJs',
+          },
+        ],
       },
     ],
   },
