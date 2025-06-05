@@ -1,7 +1,33 @@
 .container {
+  display: flex;
   width: 100%;
   height: 100%;
+  padding-top: 10px;
   overflow: hidden;
   overflow-y: auto;
   border: 1px solid #f00;
+  .leftBox {
+    display: grid;
+    flex-wrap: wrap;
+    grid-gap: 20px;
+    grid-template-columns: calc(25% - 20px) calc(25% - 20px) calc(25% - 20px) calc(
+        25% - 20px
+      );
+    align-self: self-start;
+    justify-content: space-evenly;
+    width: 80%;
+    background-color: #f002;
+    > div {
+      width: 100%;
+      height: 300px;
+      background-color: #0f0;
+    }
+  }
+  .rightBox {
+    display: grid;
+    flex: 1;
+    grid-template-columns: repeat(auto-fill, 80px);
+    justify-content: space-evenly;
+    background-color: #09f2;
+  }
 }

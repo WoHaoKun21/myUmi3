@@ -61,3 +61,65 @@ export const timeHandel = () => {
     second,
   };
 };
+
+export const handleChartData = (arr: any[], type: 'line' | 'bar' | 'pie') => {
+  const allData = arr.map((o) => o.value);
+  if (type === 'pie') {
+    const pieData = arr.map((o) => ({ value: o.value, name: o.name }));
+    return {
+      tooltip: {
+        trigger: 'item',
+      },
+      series: [
+        {
+          name: '饼图数据',
+          type: 'pie',
+          radius: ['43%', '70%'],
+          avoidLabelOverlap: false,
+          padAngle: 2,
+          label: {
+            show: false,
+            position: 'center',
+          },
+          emphasis: {
+            label: {
+              show: true,
+              fontSize: 24,
+              fontWeight: 'bold',
+            },
+          },
+          labelLine: {
+            show: false,
+          },
+          data: pieData,
+        },
+      ],
+    };
+  }
+
+  return {
+    tooltip: {
+      trigger: 'axis',
+      backgroundColor: 'rgba(255, 255, 255, 0.62)',
+      textStyle: { color: '#000' },
+    },
+    xAxis: {
+      type: 'category',
+      boundaryGap: type !== 'line',
+      data: arr.map((o) => o.dataTime),
+    },
+    yAxis: {
+      name: '???',
+      type: 'value',
+      max: Math.ceil(Math.max(...allData) + 5),
+      min: Math.ceil(Math.min(...allData) - 5),
+    },
+    series: [
+      {
+        type,
+        smooth: true,
+        data: arr.map((o) => o.value),
+      },
+    ],
+  };
+};
