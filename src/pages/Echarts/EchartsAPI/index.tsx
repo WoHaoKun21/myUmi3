@@ -2,7 +2,7 @@ import React, { useEffect, useState } from 'react';
 import * as echarts from 'echarts';
 import classNames from 'classnames';
 import styles from './index.less';
-import moment from 'moment';
+import dayjs from 'dayjs';
 
 let myChart: any;
 let myChartDOM: any;

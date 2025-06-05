@@ -20,7 +20,9 @@
     "@ant-design/icons": "^6.0.0",
     "@ant-design/pro-layout": "^6.5.0",
     "@orillusion/core": "^0.8.5-dev.6",
+    "antd": "^5",
     "axios": "^1.9.0",
+    "classnames": "^2.3.1",
     "dayjs": "^1.11.13",
     "echarts": "^5.6.0",
     "echarts-gl": "^2.0.9",
@@ -29,6 +31,8 @@
     "react-dom": "18.x",
     "three": "^0.177.0",
     "umi": "^3.5.43",
+    "umi-plugin-keep-alive": "^0.0.1-beta.30",
+    "umi-request": "^1.4.0",
     "xlsx": "^0.18.5"
   },
   "devDependencies": {
