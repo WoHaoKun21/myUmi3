@@ -1,6 +1,8 @@
 /* eslint-disable react-hooks/exhaustive-deps */
 /* eslint-disable @typescript-eslint/no-empty-interface */
 import React, { useState } from 'react';
+import { DndProvider } from 'react-dnd';
+import { HTML5Backend } from 'react-dnd-html5-backend';
 import CommMenu from './CommMenu';
 import CommHeader from './CommHeader';
 import styles from './index.less';
@@ -22,7 +24,9 @@ const Layouts: React.FC = ({ children }) => {
       <CommHeader />
       <div className={styles.com_info}>
         <CommMenu showIcon={showIcon} />
-        <div className={styles.content}>{children}</div>
+        <DndProvider backend={HTML5Backend}>
+          <div className={styles.content}>{children}</div>
+        </DndProvider>
       </div>
     </div>
   );
