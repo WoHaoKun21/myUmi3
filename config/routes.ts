@@ -192,6 +192,16 @@ const routes: Route[] = [
             path: '/drag/interactjs',
             component: './Drag/InteractJs',
           },
+          {
+            name: '原生拖拽库',
+            path: '/drag/htmlJS',
+            component: './Drag/HtmlJS',
+          },
+          {
+            name: 'DndKit拖拽库',
+            path: '/drag/dndkit',
+            component: './Drag/DndKit',
+          },
         ],
       },
     ],
