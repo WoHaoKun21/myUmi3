@@ -3,7 +3,7 @@
 import React, { useState } from 'react';
 import { DndProvider } from 'react-dnd';
 import { HTML5Backend } from 'react-dnd-html5-backend';
-import { DndContext } from '@dnd-kit/core';
+// import { DndContext } from '@dnd-kit/core';
 import CommMenu from './CommMenu';
 import CommHeader from './CommHeader';
 import styles from './index.less';
@@ -24,12 +24,12 @@ const Layouts: React.FC = ({ children }) => {
     >
       <CommHeader />
       <div className={styles.com_info}>
-        <DndContext>
-          <CommMenu showIcon={showIcon} />
-          <DndProvider backend={HTML5Backend}>
-            <div className={styles.content}>{children}</div>
-          </DndProvider>
-        </DndContext>
+        {/* <DndContext> */}
+        <CommMenu showIcon={showIcon} />
+        <DndProvider backend={HTML5Backend}>
+          <div className={styles.content}>{children}</div>
+        </DndProvider>
+        {/* </DndContext> */}
       </div>
     </div>
   );
