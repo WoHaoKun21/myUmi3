@@ -62,64 +62,107 @@ export const timeHandel = () => {
   };
 };
 
-export const handleChartData = (arr: any[], type: 'line' | 'bar' | 'pie') => {
-  const allData = arr.map((o) => o.value);
-  if (type === 'pie') {
-    const pieData = arr.map((o) => ({ value: o.value, name: o.name }));
-    return {
-      tooltip: {
-        trigger: 'item',
-      },
-      series: [
-        {
-          name: '饼图数据',
-          type: 'pie',
-          radius: ['43%', '70%'],
-          avoidLabelOverlap: false,
-          padAngle: 2,
-          label: {
-            show: false,
-            position: 'center',
-          },
-          emphasis: {
-            label: {
-              show: true,
-              fontSize: 24,
-              fontWeight: 'bold',
-            },
-          },
-          labelLine: {
-            show: false,
-          },
-          data: pieData,
-        },
-      ],
-    };
+export class WS {
+  url: string;
+  prot: string;
+  ws: any;
+  // 错误消息队列
+  errorStack: [];
+  // 是否在重连中
+  isReconnectionLoading: boolean;
+  // 是否是用户手动关闭连接
+  isCustomClose: boolean;
+  // 延时重连的 id
+  timeId: any;
+
+  constructor(url: string, prot = '') {
+    this.url = url;
+    this.prot = prot;
+    this.isCustomClose = false;
+    this.isReconnectionLoading = false;
+    this.errorStack = [];
+    // 开始初始化
+    this.createWs();
+  }
+  // 创建WebScoket，并进行监听
+  createWs() {
+    this.ws = new WebSocket(this.url);
+    if (this.prot) {
+      this.ws = new WebSocket(this.url, this.prot);
+    }
+    // 事件监听
+    this.onopen();
+    this.onerror();
+    this.onclose();
+    this.onmessage();
   }
 
-  return {
-    tooltip: {
-      trigger: 'axis',
-      backgroundColor: 'rgba(255, 255, 255, 0.62)',
-      textStyle: { color: '#000' },
-    },
-    xAxis: {
-      type: 'category',
-      boundaryGap: type !== 'line',
-      data: arr.map((o) => o.dataTime),
-    },
-    yAxis: {
-      name: '???',
-      type: 'value',
-      max: Math.ceil(Math.max(...allData) + 5),
-      min: Math.ceil(Math.min(...allData) - 5),
-    },
-    series: [
-      {
-        type,
-        smooth: true,
-        data: arr.map((o) => o.value),
-      },
-    ],
-  };
-};
+  // 连接成功
+  onopen() {
+    this.ws.onopen = () => {
+      // 发送成功连接之前所发送失败的消息
+      this.errorStack.forEach((message) => {
+        this.send(message);
+      });
+      this.errorStack = [];
+      this.isReconnectionLoading = false; //
+    };
+  }
+  // 监听失败/建立连接失败
+  onerror() {
+    this.ws.onerror = () => {
+      this.reconnection();
+      this.isReconnectionLoading = false;
+    };
+  }
+  // 关闭连接
+  onclose() {
+    this.ws.onclose = () => {
+      // 用户手动关闭的不重连
+      if (this.isCustomClose) return;
+      this.reconnection();
+      this.isReconnectionLoading = false;
+    };
+  }
+  // 接受消息
+  onmessage() {
+    this.ws.onmessage = () => {};
+  }
+  // 重新建立连接
+  reconnection() {
+    // 防止重复
+    if (this.isReconnectionLoading) return;
+    this.isReconnectionLoading = true; // 连接开始
+    clearTimeout(this.timeId);
+    this.timeId = setTimeout(() => {
+      this.createWs();
+    }, 3000);
+  }
+  // 发送消息
+  send(message: never) {
+    // 连接失败时的处理
+    if (this.ws.readyState !== 1) {
+      this.errorStack.push(message);
+      return;
+    }
+    this.ws.send(message);
+  }
+
+  // 手动关闭
+  close() {
+    this.isCustomClose = true;
+    this.ws.close();
+  }
+  // 手动开启
+  start() {
+    this.isCustomClose = false;
+    this.reconnection();
+  }
+
+  // 销毁
+  destroy() {
+    this.close();
+    this.ws = null;
+    this.errorStack = [];
+  }
+}
