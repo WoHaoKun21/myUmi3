@@ -19,7 +19,7 @@ const CommHeader: React.FC = () => {
 
   return (
     <div className={styles.header}>
-      <div className={styles.header_title}>UMI3测试demo框架</div>
+      <div className={styles.header_title}>个人实例化框架</div>
       <div className={styles.header_info}>{solar}</div>
     </div>
   );
