@@ -25,6 +25,18 @@ const routes: Route[] = [
         icon: '/comm/info',
       },
       {
+        name: 'Cesium3D地图',
+        path: '/cesium',
+        icon: '/comm/search',
+        routes: [
+          {
+            path: '/cesium/threeJs',
+            name: 'Cesium城市',
+            component: './Cesium/CesiumCity',
+          },
+        ],
+      },
+      {
         path: '/leaflet',
         name: 'Leflets的使用',
         icon: '/comm/analy',
@@ -176,7 +188,6 @@ const routes: Route[] = [
           },
         ],
       },
-
       {
         name: '元素拖拽',
         path: '/drag',

@@ -41,16 +41,24 @@
     <!-- 封装的地图事件——二维 -->
     <script src="<%= context.config.publicPath +'sdk.js'%>"></script>
     <!-- 封装的地图事件——三维 -->
-    <script src="http://139.129.91.162:8080/xinmuyun/3d/sdk.js"></script>
+    <!-- <script src="<%= context.config.publicPath +'sdk3D.js'%>"></script> -->
 
     <!-- 百度地图 -->
     <script src="https://api.map.baidu.com/api?v=1.0&&type=webgl&ak=EtGdDW2jYTtiQqWPFVFiAuxTIWY3VZD4"></script>
 
+    <!-- 引入cesium3D地图 -->
+    <script src="<%= context.config.publicPath +'Cesium/Cesium.js'%>"></script>
+    <link
+      rel="stylesheet"
+      href="<%= context.config.publicPath +'Cesium/Widgets/widgets.css'%>"
+    />
     <script>
       window._AMapSecurityConfig = {
         securityJsCode: '16f81296c450f8bb5149a86056dae9c8',
       };
       var map;
+      Cesium.Ion.defaultAccessToken = 'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJqdGkiOiJjOGJkN2EwZi1jZjI3LTQwYjktOTcyOS1lODU4NGU5OTJkNWQiLCJpZCI6MzQ0NzkxLCJpYXQiOjE3NTg4NzI1MTN9.Zy06GuCyMTlq58VMV6lafX5cdBp0W_aicKD-30XnIAM';
+
     </script>
   </head>
   <body>

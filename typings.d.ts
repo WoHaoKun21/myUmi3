@@ -109,6 +109,36 @@ declare let BMapGL: {
   Map: new (ele: string | HTMLElement, option?: object) => void;
 };
 
+// Cesiumclass属性
+declare let Cesium: {
+  Viewer: new (ele: string | HTMLElement, option?: object) => void;
+  // 相机
+  Camera: {
+    DEFAULT_VIEW_RECTANGLE: any;
+  };
+  // 定位
+  Rectangle: {
+    fromDegrees(west: number, south: number, east: number, north: number): any;
+  };
+  Cartesian3: {
+    fromDegrees(longitude: number, latitude: number, height: number): any;
+  };
+  Math: {
+    toRadians(degrees: number): number;
+  };
+  Ion: {
+    defaultAccessToken: string;
+  };
+  SceneMode: {
+    COLUMBUS_VIEW: number;
+    MORPHING: number;
+    SCENE2D: number;
+    SCENE3D: number;
+    getMorphTime(): any;
+  };
+  createWorldTerrain(): any;
+};
+
 declare namespace API {
   interface PageInfo {
     current?: number;
