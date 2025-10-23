@@ -56,6 +56,11 @@ const routes: Route[] = [
             name: 'Leflets百度地图图层切换',
             component: './Leaflet/leafletBDSwitch',
           },
+          {
+            path: '/leaflet/mapFlow',
+            name: 'Leflets实现流动效果',
+            component: './Leaflet/mapFlow',
+          },
         ],
       },
       {
