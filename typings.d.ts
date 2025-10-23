@@ -122,9 +122,11 @@ declare let Cesium: {
   };
   Cartesian3: {
     fromDegrees(longitude: number, latitude: number, height: number): any;
+    fromDegreesArray(arr: number[]): any;
   };
   Math: {
     toRadians(degrees: number): number;
+    toDegrees(opts: any): number;
   };
   Ion: {
     defaultAccessToken: string;
@@ -136,7 +138,37 @@ declare let Cesium: {
     SCENE3D: number;
     getMorphTime(): any;
   };
+  PolygonGeometry: any;
+  ColorGeometryInstanceAttribute: {
+    fromColor(color: any): any;
+  };
+  Color: {
+    fromCssColorString(hex: string): any;
+  };
+  Cartographic: {
+    fromCartesian: (opts: any) => {
+      latitude: any;
+      longitude: any;
+      height: any;
+    };
+  };
+  ScreenSpaceEventType: {
+    LEFT_CLICK: string;
+  };
+  defined(opt: any): any;
   createWorldTerrain(): any;
+  EllipsoidTerrainProvider(): any;
+  ClippingPolygonCollection: new ({ polygons }: { polygons: any[] }) => {
+    inverse: Boolean;
+  };
+  ClippingPolygon: new (options: any) => void;
+  PolygonHierarchy: new (options: any, arr?: any[]) => void;
+  Primitive: new (options: any) => void;
+  PerInstanceColorAppearance: new (options: any) => void;
+  GeometryInstance: new (options: any) => void;
+  ScreenSpaceEventHandler: new (dom: any) => {
+    setInputAction(callback: (e: any) => void, type: string): void;
+  };
 };
 
 declare namespace API {
