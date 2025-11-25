@@ -61,6 +61,11 @@ const routes: Route[] = [
             name: 'Leflets实现流动效果',
             component: './Leaflet/mapFlow',
           },
+          {
+            path: '/leaflet/mapShape',
+            name: 'Leflets加载shp地图数据',
+            component: './Leaflet/mapShape',
+          },
         ],
       },
       {

@@ -42,7 +42,7 @@ export default defineConfig({
   ignoreMomentLocale: true,
   proxy: {
     '/api': {
-      target: 'http://211.90.240.131:8083/',
+      target: 'https://106.12.220.248:39562/',
       changeOrigin: true,
       pathRewrite: { '^/api': '' },
     },

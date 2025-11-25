@@ -26,6 +26,9 @@ declare module 'lunar-calendar' {
     lunarDayName: string;
   };
 }
+declare let L: any;
+declare let shapefile: any;
+declare let shp: any;
 declare let ANT_DESIGN_PRO_ONLY_DO_NOT_USE_IN_YOUR_PRODUCTION:
   | 'site'
   | undefined;

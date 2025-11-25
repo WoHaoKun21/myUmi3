@@ -7,3 +7,11 @@ export function loginOut(token: any) {
     method: MethodEnum.GET,
   });
 }
+
+// 用户退出
+export function getMapData(fileName: any) {
+  return request(`/down/${fileName}`, {
+    method: MethodEnum.GET,
+    // responseType: 'blob',
+  });
+}
